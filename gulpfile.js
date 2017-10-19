@@ -2,7 +2,10 @@
  * Created by fengyang on 2017/10/18.
  */
 //处理任务
-var gulp = require("gulp");
+var gulp = require("gulp");//引入gulp
+var imagemin = require("gulp-imagemin");
+var sass = require('gulp-sass');
+var uglify = require('gulp-sass');
 
 /*
 * gulp常用的方法
@@ -34,4 +37,17 @@ gulp.task("copyHtml",function(){
 });
 
 //图片压缩
+gulp.task("imageMin",function(){
+   gulp.src("src/iamges/test.jpg")
+       .pipe(imagemin())
+       .pipe(gulp.dest("dist/images"));
+});
+//js压缩
+gulp.task("minify",function(){
+    gulp.src("src/js/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest("dist/js"));
+})
 
+//sass转换
+/*gulp.task("")*/
