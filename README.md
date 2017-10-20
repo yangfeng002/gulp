@@ -17,7 +17,9 @@ web构建工具
    cnpm install gulp-imagemin --save-dev  //图片压缩
    npm install gulp-concat --save-dev  //代码合并
 
-
+   ---删除node_modules执行命令：
+       npm install rimraf -g
+       rimraf node_modules
 
 2.主要功能：代码压缩、代码合并、图片压缩、sass转换
 3.工作原理：主要使用pipe()来输入和输出
