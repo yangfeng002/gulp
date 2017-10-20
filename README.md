@@ -1,4 +1,4 @@
-# gulp
+# gulp   不检查node_modules 可以在setting/editor/file types里面忽略掉
 web构建工具
 ---用于前后端代码管理的工具
 ---基于node.js和npm的构建工具
@@ -11,7 +11,13 @@ web构建工具
    npm install gulp -g   全局安装gulp
    npm install gulp --save-dev  本地安装和保存
    创建一个gulpfile.js文件名称一定要写对
-   
+
+   npm install gulp-uglify --save-dev //js压缩
+   cnpm install gulp-sass --save-dev  //sass转换
+   cnpm install gulp-imagemin --save-dev  //图片压缩
+   npm install gulp-concat --save-dev  //代码合并
+
+
 
 2.主要功能：代码压缩、代码合并、图片压缩、sass转换
 3.工作原理：主要使用pipe()来输入和输出
@@ -37,5 +43,8 @@ gulp.task("message",function(){
 gulp.task("default", function () {
     return console.log("gulp 默认的任务执行");   // gulp
 });
+
+//执行多个任务
+gulp.task("default", ["message","copyHtml","imageMin","minify","sass"]);
 
 
